@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @roteiro.usuario %>
+</p>
+
+<p>
+  <strong>Historia:</strong>
+  <%= @roteiro.historia %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @roteiro.titulo %>
+</p>
+
+<%= link_to 'Edit', edit_roteiro_path(@roteiro) %> |
+<%= link_to 'Back', roteiros_path %>

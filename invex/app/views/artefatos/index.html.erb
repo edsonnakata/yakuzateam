@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Artefatos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Historia</th>
+      <th>Titulo</th>
+      <th>Coordenada</th>
+      <th>Descricao</th>
+      <th>E pago</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @artefatos.each do |artefato| %>
+      <tr>
+        <td><%= artefato.usuario %></td>
+        <td><%= artefato.historia %></td>
+        <td><%= artefato.titulo %></td>
+        <td><%= artefato.coordenada %></td>
+        <td><%= artefato.descricao %></td>
+        <td><%= artefato.e_pago %></td>
+        <td><%= link_to 'Show', artefato %></td>
+        <td><%= link_to 'Edit', edit_artefato_path(artefato) %></td>
+        <td><%= link_to 'Destroy', artefato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Artefato', new_artefato_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @artefato.usuario %>
+</p>
+
+<p>
+  <strong>Historia:</strong>
+  <%= @artefato.historia %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @artefato.titulo %>
+</p>
+
+<p>
+  <strong>Coordenada:</strong>
+  <%= @artefato.coordenada %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @artefato.descricao %>
+</p>
+
+<p>
+  <strong>E pago:</strong>
+  <%= @artefato.e_pago %>
+</p>
+
+<%= link_to 'Edit', edit_artefato_path(@artefato) %> |
+<%= link_to 'Back', artefatos_path %>

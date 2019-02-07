@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  save: MyString
+  usuarios: one
+  historia: one
+
+two:
+  save: MyString
+  usuarios: two
+  historia: two
