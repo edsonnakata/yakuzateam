@@ -10,60 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_163140) do
+ActiveRecord::Schema.define(version: 2019_02_13_010459) do
 
-  create_table "artefatos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "usuario_id"
-    t.bigint "historia_id"
-    t.string "titulo"
-    t.string "coordenada"
-    t.text "descricao"
-    t.string "e_pago"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "chapters", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "history_id"
+    t.string "capitulo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["historia_id"], name: "index_artefatos_on_historia_id"
-    t.index ["usuario_id"], name: "index_artefatos_on_usuario_id"
+    t.index ["history_id"], name: "index_chapters_on_history_id"
+    t.index ["user_id"], name: "index_chapters_on_user_id"
   end
 
-  create_table "capitulos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "save"
-    t.bigint "usuarios_id"
-    t.bigint "historia_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["historia_id"], name: "index_capitulos_on_historia_id"
-    t.index ["usuarios_id"], name: "index_capitulos_on_usuarios_id"
-  end
-
-  create_table "historia", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "usuario_id"
-    t.string "titulo"
+  create_table "historia", force: :cascade do |t|
+    t.text "titulo"
     t.string "nome"
     t.text "descricao"
-    t.string "e_pago"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["usuario_id"], name: "index_historia_on_usuario_id"
+    t.index ["user_id"], name: "index_historia_on_user_id"
   end
 
-  create_table "roteiros", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "usuario_id"
-    t.bigint "historia_id"
+  create_table "histories", force: :cascade do |t|
+    t.text "titulo"
+    t.string "nome"
+    t.text "descricao"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
+  create_table "scripts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "history_id"
     t.string "titulo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["historia_id"], name: "index_roteiros_on_historia_id"
-    t.index ["usuario_id"], name: "index_roteiros_on_usuario_id"
+    t.index ["history_id"], name: "index_scripts_on_history_id"
+    t.index ["user_id"], name: "index_scripts_on_user_id"
   end
 
-  create_table "usuarios", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nome"
-    t.string "email"
-    t.string "password"
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nome", collation: "C.UTF-8"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "capitulos", "historia", column: "historia_id"
-  add_foreign_key "capitulos", "usuarios", column: "usuarios_id"
+  add_foreign_key "chapters", "histories"
+  add_foreign_key "chapters", "users"
+  add_foreign_key "historia", "users"
+  add_foreign_key "histories", "users"
+  add_foreign_key "scripts", "histories"
+  add_foreign_key "scripts", "users"
 end

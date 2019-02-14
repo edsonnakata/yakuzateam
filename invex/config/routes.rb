@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  resources :capitulos
-  get 'home/index'
-  root 'home#index' 
+  resources :chapters
+  resources :scripts
+  resources :histories
+  devise_for :users
 
-  resources :artefatos
-  resources :roteiros
-  resources :historia
-  resources :usuarios
+  root to: 'histories#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

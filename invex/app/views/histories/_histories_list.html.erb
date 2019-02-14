@@ -1,0 +1,39 @@
+<hr>
+<div class="container-fluid">
+
+
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <table data-toggle="table" class="table table-hover table-striped table-bordered">
+        <thead>
+        <tr>
+          <th data-field="codigo" data-sortable="true">Título</th>
+          <th data-field="nome" data-sortable="true">Descrição</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @histories.each do |historia| %>
+          <tr>
+            <td class="col-sm-3" class="data-sort-class"><%= historia.titulo %></td>
+            <td class="col-sm-4" class="data-sort-class"><%= historia.descricao %></td>
+            <td class="col-sm-2 center">
+              <%= link_to history_path(historia), title: "Visualizar", class: "btn btn-xs btn-success btn-width" do %>
+                <i class="fa fa-search-plus" aria-hidden="true"></i>
+              <% end %>
+              <%#= link_to edit_orgao_path(orgao), title: "Editar", class: "btn btn-xs btn-webtech btn-width" do %>
+<!--                <span class="glyphicon glyphicon-edit"></span>-->
+              <%# end %>
+              <%#= link_to orgao, method: :delete, data: {confirm: 'Confirmar exclusão?'}, title: "Excluir", class: "btn btn-xs btn-danger btn-width" do %>
+<!--                <span class="glyphicon glyphicon-trash"></span>-->
+              <%# end %>
+
+              </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <br>
+    </div>
+  </div>
+</div>

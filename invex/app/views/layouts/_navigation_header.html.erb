@@ -1,0 +1,40 @@
+
+<%if user_signed_in? %>
+  <nav class="navbar navbar-light bg-dark">
+    <a class="navbar-brand text-light" href="/">Home</a>
+      <form class="form-inline">
+        <div class="text-light" >
+        <%= current_user.nome %>
+        </div>
+        <%= link_to  edit_user_registration_path(current_user), class: "btn btn-outline-secondary" do%>
+          <span class="glyphicon glyphicon-edit"></span> Editar
+        <% end %>
+        <div style="padding-left: 10px;">
+          <%= link_to  destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary" do%>
+            <span class="glyphicon glyphicon-edit"></span> sair
+          <% end %>
+        </div>
+      </form>
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav mr-auto">-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+            <%#= current_user.email %>
+<!--          </a>-->
+<!--          <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <a <%#= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>-->
+<!--              Configurações-->
+            <%#end %>
+<!--            </a>-->
+<!--            <div class="dropdown-divider"></div>-->
+<!--            <a <%#= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>-->
+<!--              Sair-->
+            <%#end %>
+<!--              </a>-->
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    </form>-->
+  </nav>
+<%end %>

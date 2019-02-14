@@ -1,2 +1,0 @@
-class Artefato < ApplicationRecord
-end

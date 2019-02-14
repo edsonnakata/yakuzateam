@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @script.user %>
+</p>
+
+<p>
+  <strong>History:</strong>
+  <%= @script.history %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @script.titulo %>
+</p>
+
+<%= link_to 'Edit', edit_script_path(@script) %> |
+<%= link_to 'Back', scripts_path %>

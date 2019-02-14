@@ -1,0 +1,143 @@
+
+<style>
+  .login-page {
+    width: 460px;
+    padding: 4% 0 0;
+    margin: auto;
+  }
+
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+
+  .form button:hover, .form button:active, .form button:focus {
+    background: #3370B7;
+  }
+
+  .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+
+
+  .form .register-form {
+    display: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .container:before, .container:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  /*.container .info {*/
+  /*margin: 50px auto;*/
+  /*text-align: center;*/
+  /*}*/
+
+  .container .info h1 {
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 36px;
+    font-weight: 300;
+    color: #1a1a1a;
+  }
+
+  /*.container .info span {*/
+  /*color: #4d4d4d;*/
+  /*font-size: 12px;*/
+  /*}*/
+
+  /*.container .info span a {*/
+  /*color: #000000;*/
+  /*text-decoration: none;*/
+  /*}*/
+
+  /*.container .info span .fa {*/
+  /*color: #EF3B3A;*/
+  /*}*/
+
+  body {
+    background: #1a1026;
+    background: -webkit-linear-gradient(right, #1a1026, #1a1026);
+    background: -moz-linear-gradient(right, #1a1026, #1a1026);
+    background: -o-linear-gradient(right, #1a1026, #1a1026);
+    background: linear-gradient(to left, #1a1026, #1a1026);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+</style>
+
+<div class="login-page">
+  <div class="form">
+    <div style="align: center" align="center">
+      <h2>Novo Registro</h2>
+    </div>
+    <br>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div style="margin-right: 50%">
+        <%= f.label :email %>
+      </div>
+
+  <div class="field" align="center">
+    <%#= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+      <div style="margin-right: 50%">
+        <%= f.label :nome , "Nick"%>
+      </div>
+
+      <div class="field" align="center">
+        <%#= f.label :nome , "Nick"%>
+        <%= f.text_field :nome%>
+      </div>
+
+      <div style="margin-right: 50%">
+        <%= f.label :password , "Senha"%>
+      </div>
+
+  <div class="field" align="center">
+    <%#= f.label :password , "Senha"%>
+    <%# if @minimum_password_length %>
+<!--    <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+<!--    <%# end %><br />-->
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "No mínimo #{@minimum_password_length} caracteres  " %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation , hidden: true %>
+    <br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmar senha" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Registrar" , class: "btn btn-primary"%>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>
+</div>
+</div>

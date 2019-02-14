@@ -1,2 +1,0 @@
-class Roteiro < ApplicationRecord
-end
