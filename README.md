@@ -5,6 +5,6 @@ Linguagem: Ruby
 
 IDE: RubyMine
 
-Banco de dados: Mysql 
+Banco de dados: PostgreSQL
 
 Hospedagem: Firebase
