@@ -1,0 +1,25 @@
+<!-- Style do background -->
+<style>
+  body{
+    background: #1a1026;
+  }
+
+</style>
+
+<div class="container-fluid">
+
+  <div class="card ">
+    <%= image_tag(@scene.imagem, class: "card-img-top")%>
+    <div class="card-body">
+      <div class="text-justify text-dark" style="float: left;">
+        <%= @scene.descricao %>
+      </div>
+    </div>
+    <div class="col-sm-12" style="text-align: center">
+    <p class="text-dark" style="font-size: medium">Com isso em mente, você decide:</p>
+    </div>
+    <div class="btn">
+    <%= link_to 'Ir até sua sala de pesquisa, checar se deixou a chave lá.' , scene3_path(id: 3), class: "text-primary" %>
+    </div>
+  </div>
+</div>

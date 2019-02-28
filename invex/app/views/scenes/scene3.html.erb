@@ -1,0 +1,76 @@
+<!-- Style do background -->
+<style>
+  body{
+    background: #1a1026;
+  }
+
+</style>
+
+<div class="container-fluid">
+
+  <div class="card ">
+    <%= image_tag(@scene.imagem, class: "card-img-top")%>
+    <div class="card-body">
+      <div class="text-justify text-dark" style="float: left;">
+        <%= @scene.descricao %>
+      </div>
+    </div>
+
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <button class="btn" style="color: #3C7FB0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Olhar por baixo da porta.
+          </button>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="row">
+            <div class="card-body col-sm-7" style="color: blue">
+              Você nota que a chave está ali no chão, atrás da porta, mas não consegue alcançá-la com o que tem.
+            </div>
+            <div class="col-sm-3" >
+              <div style="float: right; margin-left: 30%; margin-top: 4%;">
+                <%= link_to 'Voltar à entrada.' , scene4_path(4), class: "btn btn-danger" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn " style="color: #3C7FB0" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Arrombar a porta!!!!
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body" style="color: blue">
+            Você para e diz para si mesmo: “Sério mesmo? Patrimônio público? Quer se meter nisso mesmo?”, e se recusa a fazer isso.
+          </div>
+
+<!--          <div class="row">-->
+<!--            <div class="col-sm-3 text-dark" style="alignment: left; margin-left: 40px;">-->
+<!--              Com isso em mente, você decide:-->
+<!--            </div>-->
+<!--            <div class="col col-sm-3 text-dark">-->
+              <%#= link_to 'Decide ir ao banheiro', scenes_cont_path(2) %>
+<!--            </div>-->
+<!--            <div class="col col-sm-3 text-dark">-->
+              <%#= link_to 'Ir até sua sala de pesquisa, checar se deixou a chave lá.', scene_path(id: 3),class: "text-primary" %>
+<!--            </div>-->
+            <%#= link_to render (:partial => 'partials/scene2') %>
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--    <div class="btn">-->
+      <%#= link_to 'Ir até sua sala de pesquisa, checar se deixou a chave lá.' , scene_path(id: 3), class: "text-primary" %>
+<!--    </div>-->

@@ -8,20 +8,13 @@
 <div class="container">
 <div class="form-group">
   <div class="row" style="align-items: flex-end; margin-bottom: -0.8em;">
-    <div class="col col-md-10" style="align-content: center">
+    <div class="col col-md-12" style="align-content: center">
       <h1 align="center"><i class="fa fa-newspaper-o"></i> Minhas Histórias</h1>
-    </div>
-    <div class="col col-md-2">
-      <div align="right">
-        <%= link_to new_history_path ,class: "btn btn-success btn-sm" do %>
-          <span class="glyphicon glyphicon-plus"></span> Adicionar Nova História
-        <% end %>
-      </div>
     </div>
   </div>
 
   <div class="form-group">
-    <%= render 'histories_list' %>
+    <%= render 'histories_list', historie: @histories %>
   </div>
 
 </div>

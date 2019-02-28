@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @history.titulo %>
-</p>
+<!-- Style do background -->
+<style>
+  body{
+    background: #1a1026;
+  }
 
-<p>
-  <strong>Nome:</strong>
-  <%= @history.nome %>
-</p>
+</style>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @history.descricao %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @history.user %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+    <%= image_tag(@history.nome, class: "figure-img img-fluid rounded", style: "") %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_history_path(@history) %> |
-<%= link_to 'Back', histories_path %>
+</div>
+
+
+<!--<p>-->
+<!--  <strong>User:</strong>-->
+  <%#= @history.user.nome %>
+<!--</p>-->
+
+<%= link_to 'Voltar', histories_path, class: "btn btn-dark text-light" %>

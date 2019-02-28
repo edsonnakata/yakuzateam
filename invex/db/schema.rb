@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_13_010459) do
+ActiveRecord::Schema.define(version: 2019_02_21_163330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2019_02_13_010459) do
     t.datetime "updated_at", null: false
     t.index ["history_id"], name: "index_chapters_on_history_id"
     t.index ["user_id"], name: "index_chapters_on_user_id"
+  end
+
+  create_table "falas", force: :cascade do |t|
+    t.bigint "scene_id"
+    t.text "texto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scene_id"], name: "index_falas_on_scene_id"
   end
 
   create_table "historia", force: :cascade do |t|
@@ -43,6 +51,15 @@ ActiveRecord::Schema.define(version: 2019_02_13_010459) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_histories_on_user_id"
+  end
+
+  create_table "scenes", force: :cascade do |t|
+    t.text "imagem"
+    t.bigint "history_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "descricao"
+    t.index ["history_id"], name: "index_scenes_on_history_id"
   end
 
   create_table "scripts", force: :cascade do |t|
@@ -70,8 +87,10 @@ ActiveRecord::Schema.define(version: 2019_02_13_010459) do
 
   add_foreign_key "chapters", "histories"
   add_foreign_key "chapters", "users"
+  add_foreign_key "falas", "scenes"
   add_foreign_key "historia", "users"
   add_foreign_key "histories", "users"
+  add_foreign_key "scenes", "histories"
   add_foreign_key "scripts", "histories"
   add_foreign_key "scripts", "users"
 end

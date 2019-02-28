@@ -1,0 +1,51 @@
+<!-- Style do background -->
+<style>
+  body{
+    background: #1a1026;
+  }
+
+</style>
+
+<div class="container-fluid">
+
+  <div class="card ">
+    <%= image_tag(@scene.imagem, class: "card-img-top")%>
+    <div class="card-body">
+      <div class="text-justify text-dark" style="float: left;">
+        <%= @scene.descricao %>
+      </div>
+    </div>
+
+    <p class="text-dark" style="font-size: medium; margin-left: 1em;"> Então você decide:  </p>
+
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <button class="btn" style="color: #3C7FB0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Pegar uma folha seca.
+          </button>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body" style="color: blue">
+            Você pega uma folha seca, mas percebe que ela pode quebrar ao manejar ela.
+          </div>
+        </div>
+
+      </div>
+      <div class="card">
+        <div class="card-header" >
+          <%= link_to 'Pegar um galho!', congratulation_path, class: "btn"%>
+<!--            <button class="btn " style="color: #3C7FB0" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">-->
+<!--              Arrombar a porta!!!!-->
+<!--            </button>-->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--    <div class="btn">-->
+<%#= link_to 'Ir até sua sala de pesquisa, checar se deixou a chave lá.' , scene_path(id: 3), class: "text-primary" %>
+<!--    </div>-->

@@ -1,0 +1,29 @@
+<%= form_with(model: scene, local: true) do |form| %>
+  <% if scene.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scene.errors.count, "error") %> prohibited this scene from being saved:</h2>
+
+      <ul>
+      <% scene.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :imagem, 'Caminho da imagem' %>
+    <%= form.text_field :imagem %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :history_id %>
+    <%#= form.text_field :history_id %>
+    <%= form.select :history_id, History.all.collect{|p| [ p.titulo, p.id ] }, { include_blank: "Selecione" } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
