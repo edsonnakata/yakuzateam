@@ -76,8 +76,12 @@ class ScenesController < ApplicationController
   end
 
   def congratulation
-    flash[:success] = "Com o galho, você volta para a sala de pesquisa, recupera a chave, e vai para sua casa."
-    render 'congratulation'
+    respond_to do |format|
+      format.html { render 'congratulation'}
+      format.json { head :no_content }
+    end
+    # flash[:success] = "Com o galho, você volta para a sala de pesquisa, recupera a chave, e vai para sua casa."
+    # redirect_to 'congratulation'
   end
 
   private
