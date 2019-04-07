@@ -11,6 +11,8 @@ class ScenesController < ApplicationController
   # GET /scenes/1
   # GET /scenes/1.json
   def show
+    # raise("houahauohauo")
+    @scene = Scene.all.where("history_id = #{params[:id]}")
 
   end
 

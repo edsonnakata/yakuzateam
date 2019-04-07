@@ -7,19 +7,43 @@
 </style>
 
 <div class="container-fluid">
-
-  <div class="card ">
-    <%= image_tag(@scene.imagem, class: "card-img-top")%>
-    <div class="card-body">
-      <div class="text-justify text-dark" style="float: left;">
-        <%= @scene.descricao %>
+  <div class="card mb-3" style="max-width: 100%;">
+    <div class="row no-gutters">
+      <div class="col-md-5">
+        <%= image_tag(@scene.imagem, class: "card-img-top", style: 'height: 550px;')%>
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-10" align="center" style="margin-left: 40px;">
+              <div class="text-justify text-dark" style="text-align: center">
+                <%= @scene.descricao %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p> </p>
+        <div class="col-sm-12" style="text-align: center">
+          <p class="text-dark" style="font-size: medium">Com isso em mente, você decide:</p>
+        </div>
+        <div class="btn" style="margin-top: 50px; margin-left: 250px;">
+          <%= link_to 'Ir até sua sala de pesquisa.' , scene3_path(id: 3), class: "text-primary" %>
+        </div>
       </div>
     </div>
-    <div class="col-sm-12" style="text-align: center">
-    <p class="text-dark" style="font-size: medium">Com isso em mente, você decide:</p>
-    </div>
-    <div class="btn">
-    <%= link_to 'Ir até sua sala de pesquisa, checar se deixou a chave lá.' , scene3_path(id: 3), class: "text-primary" %>
-    </div>
   </div>
+<!--  <div class="card ">-->
+    <%#= image_tag(@scene.imagem, class: "card-img-top")%>
+<!--    <div class="card-body">-->
+<!--      <div class="text-justify text-dark" style="float: left;">-->
+        <%#= @scene.descricao %>
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-sm-12" style="text-align: center">-->
+<!--    <p class="text-dark" style="font-size: medium">Com isso em mente, você decide:</p>-->
+<!--    </div>-->
+<!--    <div class="btn">-->
+    <%#= link_to 'Ir até sua sala de pesquisa, checar se deixou a chave lá.' , scene3_path(id: 3), class: "text-primary" %>
+<!--    </div>-->
+<!--  </div>-->
 </div>

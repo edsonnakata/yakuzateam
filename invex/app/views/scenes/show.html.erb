@@ -8,53 +8,61 @@
 </style>
 <div class="container-fluid">
 
-<div class="card ">
-  <%= image_tag(@scene.imagem, class: "card-img-top")%>
-  <div class="card-body">
-  </div>
-  <p class="card-text text-dark" style="margin-left: 1em; font-size: medium;">Você se aproxima do guarda e pergunta:</p>
-  <div class="accordion" id="accordionExample">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-            <button class="btn" style="color: #cc0000" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-             - "Tem mais gente no bloco?"
-            </button>
-        </div>
-
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body" style="color: blue">
-           - “Não, já foram todos pra casa.”
-          </div>
-        </div>
+  <div class="card mb-3" style="max-width: 100%;">
+    <div class="row no-gutters">
+      <div class="col-md-5">
+        <%= image_tag(@scene[0].imagem, class: "card-img-top", style: 'height: 550px;')%>
       </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn " style="color: #cc0000" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              - "O senhor pode me dizer se as salas estão abertas?"
-            </button>
-          </h2>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h6 class="text-dark"><%= @scene[0].descricao%></h6>
         </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body" style="color: blue">
-           - "Algumas, eu acho, mas não sei dizer quais."
-          </div>
+          <div class="accordion" id="accordionExample">-->
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                  <button class="btn" style="color: #cc0000" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                   - "Tem mais gente no bloco?"
+                  </button>
+              </div>
 
-          <div class="row">
-          <div class="col-sm-3 text-dark" style="alignment: left; margin-left: 40px;">
-            Com isso em mente, você decide:
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body" style="color: blue">
+                 - “Não, já foram todos pra casa.”
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn " style="color: #cc0000" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    - "O senhor pode me dizer se as salas estão abertas?"
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body" style="color: blue">
+                 - "Algumas, eu acho, mas não sei dizer quais."
+                </div>
+                <div class="row">
+                  <div class="col-sm-12 text-dark" style="alignment: left; margin-left: 40px;">
+                    Com isso em mente, você decide:
+                  </div>
+                </div>
+                <br>
+                <div class="fom-group">
+                  <div class="row" style="margin-left: 20px;">
+                    <div class="col col-sm-5 text-dark">
+                      <%= link_to 'Decide ir ao banheiro', scenes_cont_path(2) ,class: "text-primary" %>
+                    </div>
+                    <div class="col col-sm-7 text-dark">
+                      <%= link_to 'Ir até sua sala de pesquisa.', scene3_path(3),class: "text-primary" %>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
           </div>
-            <div class="col col-sm-3 text-dark">
-            <%= link_to 'Decide ir ao banheiro', scenes_cont_path(2) ,class: "text-primary" %>
-            </div>
-            <div class="col col-sm-3 text-dark">
-              <%= link_to 'Ir até sua sala de pesquisa, checar se deixou a chave lá.', scene3_path(3),class: "text-primary" %>
-            </div>
-            <%#= link_to render (:partial => 'partials/scene2') %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-  </div>
-<!--</div>-->
+</div>

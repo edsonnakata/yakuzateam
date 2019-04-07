@@ -6,6 +6,7 @@ class HistoriesController < ApplicationController
   # GET /histories.json
   def index
     @histories = History.all
+    # @histories = History.find_by(id: 1)
   end
 
   # GET /histories/1
